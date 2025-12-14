@@ -25,7 +25,7 @@ La idea es transformar el diseño que tenéis en la plataforma en un proyecto 10
 
 
 
-<in>Código y buenas prácticas</ins>
+<ins>Código y buenas prácticas</ins>
 
 ✔ Usar Flexbox o Grid para alinear los elementos correctamente.
 
