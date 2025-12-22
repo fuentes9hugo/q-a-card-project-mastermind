@@ -1,23 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pregunta y responde</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/cb00f18dc9.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Estructura de la tarjeta -->
     <div class="card">
+        <!-- Conexiones de los inputs con sus labels -->
+        <input type="radio" id="a" name="quiz">
+        <input type="radio" id="b" name="quiz">
+        <input type="radio" id="c" name="quiz">
+        <input type="radio" id="skip" name="quiz">
+        <input type="checkbox" id="send" name="quiz">
+        <!-- Pregunta y respuestas -->
         <div class="card-item">
-            <h3>¿Cuál de estos elementos es un gas noble?</h3>
-            <div class="answer"><span>A</span>Oxígeno</div>
-            <div class="answer"><span>B</span>Neón</div>
-            <div class="answer"><span>C</span>Hierro</div>
+            <div class="question"><h3>¿Cuál de estos elementos es un gas noble?</h3></div>
+            <div class="answers">
+                <div class="answer-btn">
+                    <label for="a"><i class="fa-solid fa-a"></i>Oxígeno</label>
+                </div>
+                <div class="answer-btn">
+                    <label for="b"><i class="fa-solid fa-b"></i>Neón</label>
+                </div>
+                <div class="answer-btn">
+                    <label for="c"><i class="fa-solid fa-c"></i>Hierro</label>
+                </div>
+            </div>
         </div>
+        <!-- Botones de omitir y enviar respuesta -->
         <div class="actions">
-            <button class="skip-btn"></button>
-            <button class="send-btn"></button>
+            <label for="skip" class="skip-btn">OMITIR</label>
+            <label for="send" class="send-btn">ENVIAR RESPUESTA</label>
         </div>
     </div>
 </body>

@@ -1,5 +1,169 @@
+/* Centrar la tarjeta y estilos base del diseño */
 body {
     display: grid;
     place-items: center;
     min-height: 100dvh;
+
+    background-color: #4B5359;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
 }
+
+/* Ocultar los botones de selección para que funcionen como interruptores */
+input[type="radio"], input[type="checkbox"] {
+    display: none;
+  }
+
+/* Empezamos a estilizar la tarjeta */
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    max-width: 400px;
+
+    border-radius: 10px;
+    padding: 25px;
+    margin: 40px 25px;
+}
+
+/* Parte de pregunta y respuestas de la tarjeta */
+.card-item {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #191B1F;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: 0 0 7px 15px rgba(220, 40, 60, 0.5);
+
+    color: #DF2E42;
+    text-align: center;
+
+    padding: 40px;
+    gap: 20px;
+}
+
+/* Contenedor de las respuestas */
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin: auto 30px;
+}
+
+/* Respuestas */
+.answer-btn label{
+    display: block;
+
+    padding: 8px;
+    text-align: left;
+    align-content: center;
+
+    background: none;
+    border: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    
+    color: #DF2E42;
+    font-weight: 500;
+    font-size: 20px;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.answer-btn label:hover {
+    background-color: #E86760;
+    border-color: #E86760;
+
+    color: #191B1F;
+}
+
+/* Esto siginifica que si el elemento está marcado, busca más abajo los hermanos que estén después de mi en el código HTML */
+/* Ej: #a:checked (si id=a está marcado) ~ (busca) .card-item (en el hermano class=card-item) label[for="a"] (el label con for=a)*/
+#a:checked ~ .card-item label[for="a"],
+#b:checked ~ .card-item label[for="b"],
+#c:checked ~ .card-item label[for="c"] {
+background-color: #E86760;
+border-color: #E86760;
+
+color: #191B1F;
+}
+
+/* Margen derecho para los iconos de font awesome */
+i {
+    margin-right: 10px;
+}
+
+/* Contenedor con los botones de omitir y enviar respuesta */
+.actions {
+    display: flex;
+    justify-content: center;
+
+    gap: 20px;
+}
+
+/* Botón de omitir */
+.skip-btn {
+    background: none;
+    border: 1px solid #B42434;
+    color: #B42434;
+    align-content: center;
+
+    padding: 10px 7px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 16px;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.skip-btn:hover {
+    background-color: #E86760;
+    border-color: #E86760;
+
+    color: #191B1F;
+}
+
+/* Botón de enviar respuesta */
+.send-btn {
+    background-color: #B82736;
+    border: 1px solid #B82736;
+    color: #191B1F;
+
+    padding: 10px 7px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 16px;
+    align-content: center;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.send-btn:hover {
+    background-color: #E86760;
+    border-color: #E86760;
+}
+
+/* Esto significa: */
+/* b debe de estar marcada y el botón de enviar también */
+/* si ambas son ciertas, CSS inyecta el check junto con estos estilos usando ::after */
+#b:checked ~ #send:checked ~ .card-item label[for="b"]::after {
+    content: "✓";
+    color: #191B1F;
+    margin-left: 20px;
+  }
+
+/* Lo mismo pero para mostrar una x con las opciones incorrectas */
+#a:checked ~ #send:checked ~ .card-item label[for="a"]::after,
+#c:checked ~ #send:checked ~ .card-item label[for="c"]::after {
+    content: "✘";
+    color: #191B1F;
+    margin-left: 20px;
+  }
